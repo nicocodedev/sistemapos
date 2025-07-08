@@ -134,6 +134,9 @@ export default function DailyEfectivoRegister() {
   const removeIncomeRow = (id: number) => {
     if (income.length > 1) {
       setIncome(income.filter((item) => item.id !== id))
+      setDeudas([
+    { id: 1, clientName: "", pendingAmount: 0, paymentMethod: "Efectivo", isMovement: false },
+  ])
     }
   }
 
@@ -154,20 +157,20 @@ export default function DailyEfectivoRegister() {
   }
 
   // Deuda handlers
-  const addDeudaRow = () => {
-    const newId = Math.max(...Deudas.map((item) => item.id), 0) + 1
-    setDeudas([...Deudas, { id: newId, clientName: "", pendingAmount: 0, paymentMethod: "Efectivo", isMovement: false }])
-  }
+  // const addDeudaRow = () => {
+  //   const newId = Math.max(...Deudas.map((item) => item.id), 0) + 1
+  //   setDeudas([...Deudas, { id: newId, clientName: "", pendingAmount: 0, paymentMethod: "Efectivo", isMovement: false }])
+  // }
 
-  const updateDeuda = (id: number, field: keyof DeudaItem, value: string | number | boolean) => {
-    setDeudas(Deudas.map((item) => (item.id === id ? { ...item, [field]: value } : item)))
-  }
+  // const updateDeuda = (id: number, field: keyof DeudaItem, value: string | number | boolean) => {
+  //   setDeudas(Deudas.map((item) => (item.id === id ? { ...item, [field]: value } : item)))
+  // }
 
-  const removeDeudaRow = (id: number) => {
-    if (Deudas.length > 1) {
-      setDeudas(Deudas.filter((item) => item.id !== id))
-    }
-  }
+  // const removeDeudaRow = (id: number) => {
+  //   if (Deudas.length > 1) {
+  //     setDeudas(Deudas.filter((item) => item.id !== id))
+  //   }
+  // }
 
   const handleSaveDay = () => {
     alert("¡Día guardado con éxito! (Función por implementar)")
